@@ -1,0 +1,26 @@
+{% extends "admin/layouts/main.html" %}
+
+{% block title %}
+    {{ params["title"] }}
+{% endblock %}
+
+{% block content %}
+    <section class="container-fluid">
+        <div class="container">
+            <ul class="list-group">
+                {% for item in params["list_articles"] %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="title">{{ item.title }}</div>
+                        <div class="control">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a type="button" href="#" class="btn btn-success">Опубликовать</a>
+                                <a type="button" href="#" class="btn btn-primary">Изменить</a>
+                                <a type="button" href="#" class="btn btn-danger">Удалить</a>
+                              </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}

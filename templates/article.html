@@ -1,0 +1,10 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    {{ params["title"] }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">{{ params["title"] }}</h1>
+    <p class="paragraph">{{ params["slug"] }}</p>
+{% endblock %}
