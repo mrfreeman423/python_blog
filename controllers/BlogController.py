@@ -30,7 +30,10 @@ class BlogController:
         if session.get("user") is None:
             return redirect(url_for("auth_routes.login"))
 
-    def delete():
-        
+    def delete(article_id):
+        article = BlogModel.query.get(article_id)
 
-        
+        db.session.delete(article)
+        db.session.commit()
+
+        return redirect(url_for("blog_routes.index"))

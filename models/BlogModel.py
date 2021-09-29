@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from models.UsersModel import UsersModel
 
 db = SQLAlchemy()
 
@@ -11,7 +12,7 @@ class BlogModel(db.Model):
     title = db.Column(db.String(255), nullable=True)
     content = db.Column(db.Text(), nullable=True)
     category_id = db.Column(db.Text(), nullable=True)
-    author_id = db.Column(db.Integer(), db.ForeignKey('users.id'), nullable=False)
+    author_id = db.Column(db.Integer(), db.ForeignKey(UsersModel.id), nullable=False)
     created_at = db.Column(db.DateTime(), nullable=False)
     updated_at = db.Column(db.DateTime(), nullable=False)
     deleted_at = db.Column(db.DateTime(), nullable=False)

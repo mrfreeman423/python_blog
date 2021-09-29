@@ -6,6 +6,11 @@
 
 {% block content %}
     <section class="container-fluid">
+        <div class="col-3">
+            <a href="{{ url_for('admin_routes.create') }}" type="button" class="btn btn-success">Создать новую статью</a>
+        </div>
+    </section>
+    <section class="container-fluid">
         <div class="container">
             <ul class="list-group">
                 {% for item in params["list_articles"] %}
@@ -15,7 +20,7 @@
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a type="button" href="#" class="btn btn-success">Опубликовать</a>
                                 <a type="button" href="#" class="btn btn-primary">Изменить</a>
-                                <a type="button" href="#" class="btn btn-danger">Удалить</a>
+                                <a type="button" href="{{ url_for('blog_routes.delete', article_id=item.id) }}" class="btn btn-danger">Удалить</a>
                               </div>
                         </div>
                     </li>
